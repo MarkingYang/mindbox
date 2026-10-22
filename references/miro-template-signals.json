@@ -1,0 +1,56 @@
+{
+  "retrieved": "2026-10-20",
+  "source": "https://miro.com/templates/mind-maps/?page=1",
+  "metric": "public copies-stat and likes-stat rendered labels, cumulative not time-normalized",
+  "templates": [
+    {
+      "title": "Business Mindmap",
+      "likes": "865",
+      "copies": "5.3K",
+      "url": "https://miro.com/templates/business-mindmap/"
+    },
+    {
+      "title": "Mindmapping",
+      "likes": "384",
+      "copies": "2.4K",
+      "url": "https://miro.com/templates/atlassian-mindmapping/"
+    },
+    {
+      "title": "Business Plan Mind Map Template",
+      "likes": "30",
+      "copies": "1.6K",
+      "url": "https://miro.com/templates/business-plan-mind-map/"
+    },
+    {
+      "title": "Brainwriting Template",
+      "likes": "23",
+      "copies": "875",
+      "url": "https://miro.com/templates/brainwriting-basic/"
+    },
+    {
+      "title": "Concept Map Template",
+      "likes": "35",
+      "copies": "4.7K",
+      "url": "https://miro.com/templates/concept-map-basic/"
+    },
+    {
+      "title": "Project Planning Mind Map",
+      "likes": "12",
+      "copies": "989",
+      "url": "https://miro.com/templates/project-planning-mind-map/"
+    },
+    {
+      "title": "Semantic Map Template",
+      "likes": "22",
+      "copies": "3.7K",
+      "url": "https://miro.com/templates/semantic-map/"
+    },
+    {
+      "title": "Six Thinking Hats Mind Map",
+      "likes": "18",
+      "copies": "938",
+      "url": "https://miro.com/templates/six-thinking-hats-mind-map-by-aryanna-martin/"
+    }
+  ],
+  "limitations": "Template-level cumulative copies, not style-specific preference, unique users, recent frequency or a cross-platform ranking."
+}

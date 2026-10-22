@@ -1,0 +1,59 @@
+{
+  "retrieved": "2026-10-20",
+  "repositorySignals": [
+    {
+      "repo": "rsms/inter",
+      "stars": 19986,
+      "url": "https://github.com/rsms/inter",
+      "metric": "GitHub stars; not active users or market share"
+    },
+    {
+      "repo": "JetBrains/JetBrainsMono",
+      "stars": 13101,
+      "url": "https://github.com/JetBrains/JetBrainsMono",
+      "metric": "GitHub stars; not active users or market share"
+    },
+    {
+      "repo": "lxgw/LxgwWenKai",
+      "stars": 26366,
+      "url": "https://github.com/lxgw/LxgwWenKai",
+      "metric": "GitHub stars; not active users or market share"
+    },
+    {
+      "repo": "notofonts/noto-cjk",
+      "stars": 4101,
+      "url": "https://github.com/notofonts/noto-cjk",
+      "metric": "GitHub stars; not active users or market share"
+    },
+    {
+      "repo": "cyrealtype/Lora-Cyrillic",
+      "stars": 502,
+      "url": "https://github.com/cyrealtype/Lora-Cyrillic",
+      "metric": "GitHub stars; not active users or market share"
+    },
+    {
+      "repo": "googlefonts/zcool-kuaile",
+      "stars": 25,
+      "url": "https://github.com/googlefonts/zcool-kuaile",
+      "metric": "GitHub stars; not active users or market share"
+    }
+  ],
+  "rankingLimit": "No verifiable cross-platform top-three usage ranking. Selection combines community signals, official product typography categories, readable Chinese coverage, and visual variety. Xiaohongshu posts are not treated as representative usage data. Google Fonts analytics was not retrievable.",
+  "productSources": [
+    {
+      "name": "Notion",
+      "url": "https://www.notion.com/help/customize-and-style-your-content",
+      "finding": "Default / Serif / Mono categories; does not establish our chosen typefaces as Notion fonts."
+    },
+    {
+      "name": "Excalidraw",
+      "url": "https://github.com/excalidraw/excalidraw/blob/master/dev-docs/docs/@excalidraw/excalidraw/api/constants.mdx",
+      "finding": "Excalifont is the default hand-drawn font."
+    },
+    {
+      "name": "Xmind",
+      "url": "https://xmind.com/user-guide/global-font-new",
+      "finding": "Global Font supports consistent map typography."
+    }
+  ]
+}

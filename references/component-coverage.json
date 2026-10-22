@@ -1,0 +1,541 @@
+{
+  "date": "2026-10-20",
+  "metric": "Number of the 16 curated recipes referencing each component; NOT user usage or preference",
+  "presets": [
+    {
+      "id": "P61",
+      "code": "L01-N19-E01-C39-B36-T06-D03"
+    },
+    {
+      "id": "P48",
+      "code": "L01-N13-E10-C26-B23-T05-D03"
+    },
+    {
+      "id": "P40",
+      "code": "L01-N13-E10-C18-B15-T10-D03"
+    },
+    {
+      "id": "P39",
+      "code": "L01-N20-E10-C17-B14-T11-D03"
+    },
+    {
+      "id": "P60",
+      "code": "L01-N21-E01-C38-B35-T08-D03"
+    },
+    {
+      "id": "P65",
+      "code": "L01-N16-E09-C43-B40-T09-D03"
+    },
+    {
+      "id": "P67",
+      "code": "L01-N18-E09-C43-B41-T12-D03"
+    },
+    {
+      "id": "P68",
+      "code": "L01-N16-E09-C45-B42-T13-D03"
+    },
+    {
+      "id": "P73",
+      "code": "L02-N19-E07-C03-B36-T06-D02"
+    },
+    {
+      "id": "P74",
+      "code": "L05-N06-E02-C39-B40-T05-D01"
+    },
+    {
+      "id": "P75",
+      "code": "L03-N20-E02-C03-B36-T10-D02"
+    },
+    {
+      "id": "P76",
+      "code": "L01-N16-E04-C38-B40-T08-D03"
+    },
+    {
+      "id": "P77",
+      "code": "L02-N19-E04-C26-B23-T11-D02"
+    },
+    {
+      "id": "P78",
+      "code": "L03-N19-E07-C39-B14-T12-D02"
+    },
+    {
+      "id": "P79",
+      "code": "L05-N13-E02-C26-B23-T09-D01"
+    },
+    {
+      "id": "P80",
+      "code": "L04-N20-E01-C17-B36-T13-D02"
+    }
+  ],
+  "axes": {
+    "L": [
+      {
+        "ordinal": "01",
+        "code": "L01",
+        "name": "左右展开",
+        "presets": [
+          "P61",
+          "P48",
+          "P40",
+          "P39",
+          "P60",
+          "P65",
+          "P67",
+          "P68",
+          "P76"
+        ]
+      },
+      {
+        "ordinal": "02",
+        "code": "L02",
+        "name": "向右展开",
+        "presets": [
+          "P73",
+          "P77"
+        ]
+      },
+      {
+        "ordinal": "03",
+        "code": "L03",
+        "name": "向下层级",
+        "presets": [
+          "P75",
+          "P78"
+        ]
+      },
+      {
+        "ordinal": "04",
+        "code": "L04",
+        "name": "括号分解",
+        "presets": [
+          "P80"
+        ]
+      },
+      {
+        "ordinal": "05",
+        "code": "L05",
+        "name": "缩进大纲",
+        "presets": [
+          "P74",
+          "P79"
+        ]
+      }
+    ],
+    "N": [
+      {
+        "ordinal": "01",
+        "code": "N06",
+        "name": "无框文字",
+        "presets": [
+          "P74"
+        ]
+      },
+      {
+        "ordinal": "02",
+        "code": "N13",
+        "name": "层级曲枝",
+        "presets": [
+          "P48",
+          "P40",
+          "P79"
+        ]
+      },
+      {
+        "ordinal": "03",
+        "code": "N19",
+        "name": "饱满圆角描边",
+        "presets": [
+          "P61",
+          "P73",
+          "P77",
+          "P78"
+        ]
+      },
+      {
+        "ordinal": "04",
+        "code": "N20",
+        "name": "明亮实色卡",
+        "presets": [
+          "P39",
+          "P75",
+          "P80"
+        ]
+      },
+      {
+        "ordinal": "05",
+        "code": "N21",
+        "name": "粉彩手作贴片",
+        "presets": [
+          "P60"
+        ]
+      },
+      {
+        "ordinal": "06",
+        "code": "N16",
+        "name": "铅笔手绘框",
+        "presets": [
+          "P65",
+          "P68",
+          "P76"
+        ]
+      },
+      {
+        "ordinal": "07",
+        "code": "N17",
+        "name": "随手圈圈",
+        "presets": []
+      },
+      {
+        "ordinal": "08",
+        "code": "N18",
+        "name": "手账涂鸦",
+        "presets": [
+          "P67"
+        ]
+      }
+    ],
+    "E": [
+      {
+        "ordinal": "01",
+        "code": "E01",
+        "name": "轻柔曲线",
+        "presets": [
+          "P61",
+          "P60",
+          "P80"
+        ]
+      },
+      {
+        "ordinal": "02",
+        "code": "E02",
+        "name": "秩序折线",
+        "presets": [
+          "P74",
+          "P75",
+          "P79"
+        ]
+      },
+      {
+        "ordinal": "03",
+        "code": "E03",
+        "name": "渐细曲枝",
+        "presets": []
+      },
+      {
+        "ordinal": "04",
+        "code": "E04",
+        "name": "直线连接",
+        "presets": [
+          "P76",
+          "P77"
+        ]
+      },
+      {
+        "ordinal": "05",
+        "code": "E06",
+        "name": "点状连线",
+        "presets": []
+      },
+      {
+        "ordinal": "06",
+        "code": "E07",
+        "name": "圆角折线",
+        "presets": [
+          "P73",
+          "P78"
+        ]
+      },
+      {
+        "ordinal": "07",
+        "code": "E09",
+        "name": "铅笔随行线",
+        "presets": [
+          "P65",
+          "P67",
+          "P68"
+        ]
+      },
+      {
+        "ordinal": "08",
+        "code": "E10",
+        "name": "圆润彩枝",
+        "presets": [
+          "P48",
+          "P40",
+          "P39"
+        ]
+      }
+    ],
+    "C": [
+      {
+        "ordinal": "01",
+        "code": "C03",
+        "name": "海军蓝阶",
+        "presets": [
+          "P73",
+          "P75"
+        ]
+      },
+      {
+        "ordinal": "02",
+        "code": "C17",
+        "name": "彩虹经典色群",
+        "presets": [
+          "P39",
+          "P80"
+        ]
+      },
+      {
+        "ordinal": "03",
+        "code": "C18",
+        "name": "石板经典色群",
+        "presets": [
+          "P40"
+        ]
+      },
+      {
+        "ordinal": "04",
+        "code": "C26",
+        "name": "自然色群",
+        "presets": [
+          "P48",
+          "P77",
+          "P79"
+        ]
+      },
+      {
+        "ordinal": "05",
+        "code": "C38",
+        "name": "暗夜粉彩色群",
+        "presets": [
+          "P60",
+          "P76"
+        ]
+      },
+      {
+        "ordinal": "06",
+        "code": "C39",
+        "name": "极简色群",
+        "presets": [
+          "P61",
+          "P74",
+          "P78"
+        ]
+      },
+      {
+        "ordinal": "07",
+        "code": "C43",
+        "name": "钢笔与蜡笔",
+        "presets": [
+          "P65",
+          "P67"
+        ]
+      },
+      {
+        "ordinal": "08",
+        "code": "C45",
+        "name": "粉笔糖果",
+        "presets": [
+          "P68"
+        ]
+      }
+    ],
+    "B": [
+      {
+        "ordinal": "01",
+        "code": "B36",
+        "name": "极简画布",
+        "presets": [
+          "P61",
+          "P73",
+          "P75",
+          "P80"
+        ]
+      },
+      {
+        "ordinal": "02",
+        "code": "B23",
+        "name": "自然画布",
+        "presets": [
+          "P48",
+          "P77",
+          "P79"
+        ]
+      },
+      {
+        "ordinal": "03",
+        "code": "B15",
+        "name": "石板经典画布",
+        "presets": [
+          "P40"
+        ]
+      },
+      {
+        "ordinal": "04",
+        "code": "B14",
+        "name": "彩虹经典画布",
+        "presets": [
+          "P39",
+          "P78"
+        ]
+      },
+      {
+        "ordinal": "05",
+        "code": "B35",
+        "name": "暗夜粉彩画布",
+        "presets": [
+          "P60"
+        ]
+      },
+      {
+        "ordinal": "06",
+        "code": "B40",
+        "name": "速写本",
+        "presets": [
+          "P65",
+          "P74",
+          "P76"
+        ]
+      },
+      {
+        "ordinal": "07",
+        "code": "B41",
+        "name": "横线手账",
+        "presets": [
+          "P67"
+        ]
+      },
+      {
+        "ordinal": "08",
+        "code": "B42",
+        "name": "粉笔黑板",
+        "presets": [
+          "P68"
+        ]
+      }
+    ],
+    "T": [
+      {
+        "ordinal": "01",
+        "code": "T06",
+        "name": "中文 · Noto Sans SC",
+        "presets": [
+          "P61",
+          "P73"
+        ]
+      },
+      {
+        "ordinal": "02",
+        "code": "T05",
+        "name": "中文 · Noto Serif SC",
+        "presets": [
+          "P48",
+          "P74"
+        ]
+      },
+      {
+        "ordinal": "03",
+        "code": "T09",
+        "name": "中文 · 霞鹜文楷",
+        "presets": [
+          "P65",
+          "P79"
+        ]
+      },
+      {
+        "ordinal": "04",
+        "code": "T08",
+        "name": "中文 · 站酷快乐体",
+        "presets": [
+          "P60",
+          "P76"
+        ]
+      },
+      {
+        "ordinal": "05",
+        "code": "T10",
+        "name": "English · Inter",
+        "presets": [
+          "P40",
+          "P75"
+        ]
+      },
+      {
+        "ordinal": "06",
+        "code": "T11",
+        "name": "English · Lora",
+        "presets": [
+          "P39",
+          "P77"
+        ]
+      },
+      {
+        "ordinal": "07",
+        "code": "T12",
+        "name": "English · JetBrains Mono",
+        "presets": [
+          "P67",
+          "P78"
+        ]
+      },
+      {
+        "ordinal": "08",
+        "code": "T13",
+        "name": "English · Excalifont",
+        "presets": [
+          "P68",
+          "P80"
+        ]
+      }
+    ],
+    "D": [
+      {
+        "ordinal": "01",
+        "code": "D01",
+        "name": "紧凑",
+        "presets": [
+          "P74",
+          "P79"
+        ]
+      },
+      {
+        "ordinal": "02",
+        "code": "D02",
+        "name": "标准",
+        "presets": [
+          "P73",
+          "P75",
+          "P77",
+          "P78",
+          "P80"
+        ]
+      },
+      {
+        "ordinal": "03",
+        "code": "D03",
+        "name": "舒展",
+        "presets": [
+          "P61",
+          "P48",
+          "P40",
+          "P39",
+          "P60",
+          "P65",
+          "P67",
+          "P68",
+          "P76"
+        ]
+      }
+    ]
+  },
+  "phase": "Before approved simplification; axes below record the original 5/8/8/8/8/8/3 inventory, not user usage",
+  "approvedDefaultCounts": {
+    "L": 5,
+    "N": 7,
+    "E": 6,
+    "C": 8,
+    "B": 8,
+    "T": 8,
+    "D": 3
+  }
+}

@@ -1,0 +1,25 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),K=require('../src/engine.cjs'),M=require('../src/media.cjs'),D=require('../src/document.cjs');
+function fixtures(){
+ const deep=['```mermaid','mindmap','  逐层看清一个问题'];for(let i=1;i<=20;i++)deep.push('  '.repeat(i+1)+'第 '+i+' 层判断');deep.push('```');
+ const large=['```mermaid','mindmap','  大图阅读结构测试'];for(let b=0;b<9;b++){large.push('    主题 '+(b+1));for(let i=0;i<8;i++){large.push('      要点 '+(b+1)+'-'+(i+1));for(let j=0;j<3;j++)large.push('        依据 '+(b+1)+'-'+(i+1)+'-'+(j+1));}}large.push('```');
+ return [{id:'deep',label:'20层递进',source:deep.join('\n'),nodes:21},{id:'large',label:'298节点大图',source:large.join('\n'),nodes:298}];
+}
+function buildQuality(root){
+ const out=path.join(root,'dist/quality'),L=K.library,results=[],samples=fixtures();fs.mkdirSync(out,{recursive:true});
+ for(const sample of samples){const tree=K.parseMindmap(sample.source);for(const p of L.selectedPresets())for(const l of L.axes.L.items){
+  const recipe=L.replaceToken(L.resolveRecipe(p.id),'L',l.code),s=M.scene(tree,recipe),geo=s.geo,size=M.exportDimensions(geo.bounds,true,geo.nodes),steps=M.readingSteps(geo);
+  if(geo.nodes.length!==sample.nodes||Object.values(geo.bounds).some(n=>!Number.isFinite(n)))throw new Error('结构检查：节点遗漏或无效布局');
+  for(let i=0;i<geo.nodes.length;i++)for(let j=i+1;j<geo.nodes.length;j++){const a=geo.nodes[i],b=geo.nodes[j];if(Math.abs(a.x-b.x)<(a.w+b.w)/2-.01&&Math.abs(a.y-b.y)<(a.h+b.h)/2-.01)throw new Error('结构检查：节点重叠');}
+  const targets=steps.flatMap(step=>step.targets);if(targets.length!==geo.nodes.length||new Set(targets).size!==targets.length)throw new Error('结构检查：阅读遗漏或重复');
+  const text=Math.min(...steps.flatMap(step=>{const camera=M.cameraBounds(geo,step,size.width/(size.height-64));return geo.nodes.filter(n=>step.targets.includes(n.id)).map(n=>n.fontSize*size.width/camera.w);}));
+  if(text<24-.02)throw new Error('结构检查：聚焦字号低于24px');results.push({fixture:sample.id,uid:p.uid,layout:l.id,recipe:recipe.code,nodes:geo.nodes.length,levels:Math.max(...geo.nodes.map(n=>n.depth))+1,readingSteps:steps.length,minFocusedTextPx:Math.round(text*10)/10,passed:true});
+ }
+ fs.writeFileSync(path.join(out,sample.id+'.html'),D.generate({source:sample.source,preset:'P67',standalone:true,player:true}));}
+ const report={format:1,version:require('../package.json').version,renderer:require('../skills/mindbox/assets/runtime/manifest.json').renderer,kind:'structural',browserChecked:false,styles:16,layouts:5,fixtures:samples.map(({id,label,nodes})=>({id,label,nodes,file:id+'.html'})),cases:results.length,passed:true,results};
+ fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');
+ const rows=L.selectedPresets().map(p=>`<tr><th scope="row"><small>${p.uid}</small> ${K.escapeXML(p.name.split(' · ')[0])}</th>${L.axes.L.items.map(l=>`<td>${results.filter(r=>r.uid===p.uid&&r.layout===l.id&&r.passed).length}/2 通过</td>`).join('')}</tr>`).join('');
+ fs.writeFileSync(path.join(out,'index.html'),`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mindbox · 可复查的结构检查</title><style>*{box-sizing:border-box}body{margin:0;background:#f8faff;color:#17243c;font:14px/1.8 system-ui,sans-serif}main{max-width:1100px;margin:50px auto;padding:0 24px}a{color:#2164ff;text-underline-offset:4px}h1{font-size:36px;line-height:1.3;letter-spacing:-.03em}p{color:#5c7292;max-width:800px}.version{font-size:12px;color:#627ca1}.samples{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}.samples a{display:block;background:#fff;padding:14px 18px;border:1px solid #dce4f1;border-radius:10px;text-decoration:none}.table-wrap{overflow:auto;background:white;border:1px solid #dce4f1;border-radius:12px}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:12px 16px;border-bottom:1px solid #edf1f7}td{font-size:12px;color:#365d51}small{color:#7a8eaa;font-weight:400}.note{font-size:12px;margin-top:22px}a:focus-visible{outline:3px solid #2164ff;outline-offset:4px}@media(max-width:600px){main{margin-top:25px;padding:0 16px}h1{font-size:28px}}</style></head><body><main><a href="../index.html#quality">← 返回 Mindbox</a><p class="version">Mindbox ${report.version} · 与本次构建一起生成</p><h1>16 套样式，逐套核对。</h1><p>5 种展开结构 × 2 份测试资料，共 ${report.cases} 组检查。逐项核对节点完整、布局有效、节点框无重叠、阅读目标无遗漏，以及聚焦动图的目标字号达到24px。示例是公开的结构测试资料，不是真实用户使用数据。</p><div class="samples">${samples.map(s=>`<a href="${s.id}.html">体验 ${s.label} ↗</a>`).join('')}<a href="../depth-examples/index.html">查看16套层级范例 ↗</a><a href="report.json">查看原始检查结果 ↗</a></div><div class="table-wrap" tabindex="0" aria-label="16样式与5结构检查结果，可横向滚动"><table><caption>每个单元格包含20层与298节点两份测试</caption><thead><tr><th>样式</th>${L.axes.L.items.map(l=>'<th scope="col">'+l.name+'</th>').join('')}</tr></thead><tbody>${rows}</tbody></table></div><p class="note">这里是可重复的结构检查，不等于所有浏览器或设备均已验证，也不验证资料本身的准确性。PNG和WebP仍受浏览器内存与像素上限约束。完整边界与人工验证记录见 <a href="https://github.com/MarkingYang/mindbox/blob/main/docs/verification.md">验证记录</a>。</p></main></body></html>`);
+ return report;
+}
+module.exports={buildQuality,fixtures};

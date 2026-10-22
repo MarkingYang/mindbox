@@ -1,0 +1,15 @@
+node_modules/
+dist/
+artifacts/
+outputs/
+src/player.html
+.agents/
+.claude/
+.codex/
+skills-lock.json
+*.log
+.DS_Store
+__pycache__/
+.env
+.env.*
+!.env.example

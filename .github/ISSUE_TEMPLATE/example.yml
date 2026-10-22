@@ -1,0 +1,16 @@
+name: Showcase / 分享案例
+description: Share an original example with editable source.
+body:
+  - type: textarea
+    id: case
+    attributes:
+      label: What did you use Mindbox for? / 用来完成什么？
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Markdown, style and preview / 内容源、样式与预览
+      description: Share only public/original material you have permission to distribute. Label illustrative content.
+    validations:
+      required: true

@@ -1,0 +1,211 @@
+[
+  {
+    "id": "read-an-article",
+    "preset": "P61",
+    "title": "看完长文，只留下这5件事",
+    "titleEn": "Read An Article",
+    "audience": "忙碌的读者",
+    "summary": "从满屏信息中，留下主张、依据、边界、联系与下一步。",
+    "signals": [
+      "everyday",
+      "questions"
+    ],
+    "source": "read-an-article.md"
+  },
+  {
+    "id": "book-to-action",
+    "preset": "P48",
+    "title": "读完就忘？把一本书变成一次行动",
+    "titleEn": "Book To Action",
+    "audience": "读书者与终身学习者",
+    "summary": "不急着摘抄整本书，先带走一个值得验证的改变。",
+    "signals": [
+      "skills",
+      "everyday"
+    ],
+    "source": "book-to-action.md"
+  },
+  {
+    "id": "ai-code-review",
+    "preset": "P40",
+    "title": "AI写的代码，合并前过这5关",
+    "titleEn": "Ai Code Review",
+    "audience": "开发者与技术写作者",
+    "summary": "把差一点才正确，拆成可以逐项检查的交付问题。",
+    "signals": [
+      "code",
+      "artifacts"
+    ],
+    "source": "ai-code-review.md"
+  },
+  {
+    "id": "model-selection",
+    "preset": "P39",
+    "title": "选模型，别先问哪个最强",
+    "titleEn": "Model Selection",
+    "audience": "AI产品经理",
+    "summary": "先定义任务与失败代价，再用自己的样本做选择。",
+    "signals": [
+      "everyday",
+      "code",
+      "artifacts"
+    ],
+    "source": "model-selection.md"
+  },
+  {
+    "id": "seven-content-angles",
+    "preset": "P60",
+    "title": "1个真实问题，长出7篇内容",
+    "titleEn": "Seven Content Angles",
+    "audience": "内容创作者与选题策划",
+    "summary": "从读者的一个困惑出发，换七种角度，而不是换七个标题。",
+    "signals": [
+      "everyday",
+      "questions"
+    ],
+    "source": "seven-content-angles.md"
+  },
+  {
+    "id": "first-draft",
+    "preset": "P65",
+    "title": "第一稿难写？先把线团摊开",
+    "titleEn": "First Draft",
+    "audience": "写作者与表达练习者",
+    "summary": "先摆出材料和矛盾，再决定这篇文字的骨架。",
+    "signals": [
+      "everyday",
+      "questions"
+    ],
+    "source": "first-draft.md"
+  },
+  {
+    "id": "creative-ideas",
+    "preset": "P67",
+    "title": "给周末造个小玩具",
+    "titleEn": "Creative Ideas",
+    "audience": "自由构思者与好奇心玩家",
+    "summary": "把一个小烦恼，反着想、画出来，再做一点点。",
+    "signals": [
+      "questions",
+      "artifacts"
+    ],
+    "source": "creative-ideas.md"
+  },
+  {
+    "id": "small-joys",
+    "preset": "P68",
+    "title": "AI时代，把日子想得轻巧一点",
+    "titleEn": "Small Joys in an AI World",
+    "audience": "打工人、求职者与日常记录者",
+    "summary": "从AI助力、求职闯关到职场边界，把现实里的难题想得轻巧一点。",
+    "signals": [
+      "skills",
+      "everyday"
+    ],
+    "source": "small-joys.md"
+  },
+  {
+    "id": "weekly-review",
+    "preset": "P73",
+    "title": "周报别写流水账，讲清3个判断",
+    "titleEn": "Weekly Review",
+    "audience": "产品运营与业务负责人",
+    "summary": "把忙了什么，换成发生了什么、为什么、下一步怎么办。",
+    "signals": [
+      "work",
+      "everyday"
+    ],
+    "source": "weekly-review.md"
+  },
+  {
+    "id": "read-ai-report",
+    "preset": "P74",
+    "title": "读AI报告，先问这6个问题",
+    "titleEn": "Read Ai Report",
+    "audience": "研究者与长文精读者",
+    "summary": "把好看的结论拆回研究问题、口径、证据和边界。",
+    "signals": [
+      "everyday",
+      "skills"
+    ],
+    "source": "read-ai-report.md"
+  },
+  {
+    "id": "small-team-handoff",
+    "preset": "P75",
+    "title": "不再互相等：3人小团队的交付分工",
+    "titleEn": "Small Team Handoff",
+    "audience": "小团队负责人",
+    "summary": "让每个人知道自己交付什么，下一位拿到什么。",
+    "signals": [
+      "work",
+      "skills"
+    ],
+    "source": "small-team-handoff.md"
+  },
+  {
+    "id": "quiet-brainstorm",
+    "preset": "P76",
+    "title": "冷场时，试试先写后聊",
+    "titleEn": "Quiet Brainstorm",
+    "audience": "策划设计与共创组织者",
+    "summary": "一个20分钟的示例议程，让点子先有位置，再开始判断。",
+    "signals": [
+      "work",
+      "questions"
+    ],
+    "source": "quiet-brainstorm.md"
+  },
+  {
+    "id": "model-rag-agent",
+    "preset": "P77",
+    "title": "模型、RAG、Agent，别再混着叫",
+    "titleEn": "Model Rag Agent",
+    "audience": "技术讲师与概念解释者",
+    "summary": "用一个任务区分生成、找资料和带着工具做事。",
+    "signals": [
+      "agents",
+      "code"
+    ],
+    "source": "model-rag-agent.md"
+  },
+  {
+    "id": "project-plan",
+    "preset": "P78",
+    "title": "周末项目别烂尾：先交一个能用的版本",
+    "titleEn": "Project Plan",
+    "audience": "独立开发者与项目负责人",
+    "summary": "把大愿望切成一条能体验、能验证、能收尾的路径。",
+    "signals": [
+      "artifacts",
+      "work"
+    ],
+    "source": "project-plan.md"
+  },
+  {
+    "id": "self-test-index",
+    "preset": "P79",
+    "title": "复习索引：从看过到答得出",
+    "titleEn": "Self Test Index",
+    "audience": "学生与知识整理者",
+    "summary": "把知识点变成可回答的问题，找到还不清楚的连接。",
+    "signals": [
+      "skills",
+      "everyday"
+    ],
+    "source": "self-test-index.md"
+  },
+  {
+    "id": "discuss-ai-feature",
+    "preset": "P80",
+    "title": "要不要加AI功能？把分歧放上同一张图",
+    "titleEn": "Discuss Ai Feature",
+    "audience": "研讨组织者与跨职能团队",
+    "summary": "先对齐事实和未知，再比较方案与要验证的风险。",
+    "signals": [
+      "work",
+      "agents"
+    ],
+    "source": "discuss-ai-feature.md"
+  }
+]

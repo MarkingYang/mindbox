@@ -1,0 +1,15 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),version=require('../package.json').version,out=path.join(root,'dist/release');
+const identity=require('../skills/mindbox/scripts/manage.cjs').inspect(path.join(root,'skills/mindbox'));
+if(identity.version!==version||identity.integrity!=='verified')throw new Error('Release package identity mismatch');
+if(process.env.GITHUB_REF_TYPE==='tag'&&process.env.GITHUB_REF_NAME!=='v'+version)throw new Error('Release tag/version mismatch');
+const notes=require('./release-notes.cjs').releaseNotes(fs.readFileSync(path.join(root,'CHANGELOG.md'),'utf8'),version);
+fs.mkdirSync(out,{recursive:true});
+fs.writeFileSync(path.join(out,'notes.md'),notes);
+const name=`mindbox-v${version}.zip`;
+fs.copyFileSync(path.join(root,'dist/downloads/mindbox.zip'),path.join(out,name));
+const digest=crypto.createHash('sha256').update(fs.readFileSync(path.join(out,name))).digest('hex');
+fs.writeFileSync(path.join(out,'SHA256SUMS'),`${digest}  ${name}\n`);
+fs.writeFileSync(path.join(out,'release.json'),JSON.stringify({schemaVersion:1,commit:process.env.GITHUB_SHA||null,version,tag:'v'+version,license:'MIT',package:identity.package,skill:'mindbox',node:'>=22.20.0',archive:name,sha256:digest,renderer:require('../skills/mindbox/assets/runtime/manifest.json').renderer},null,2)+'\n');
+console.log('Release assets: '+out);

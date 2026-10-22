@@ -1,0 +1,8 @@
+{
+  "preset": "P67",
+  "date": "2026-10-21",
+  "previousCode": "L02-N18-E09-C43-B41-T12-D03",
+  "code": "L01-N18-E09-C43-B40-T12-D03",
+  "reason": "User requested plain sketchbook B40 as the P67 default. Original B41 ruled-paper recipes remain importable without alteration.",
+  "previousBalancedCode": "L01-N18-E09-C43-B41-T12-D03"
+}

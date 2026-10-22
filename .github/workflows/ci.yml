@@ -1,0 +1,38 @@
+name: Check Mindbox
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            node: '22.20.0'
+          - os: ubuntu-latest
+            node: '24'
+          - os: macos-latest
+            node: '24'
+          - os: windows-latest
+            node: '24'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run check:package
+      - run: npm run check
+      - run: npm run test:install
+        env:
+          DISABLE_TELEMETRY: '1'
+          DO_NOT_TRACK: '1'
+      - name: Generated Skill resources must be committed
+        run: git diff --exit-code -- skills/mindbox docs/images/overview.svg

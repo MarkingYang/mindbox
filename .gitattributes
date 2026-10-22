@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.woff2 binary
+*.png binary
+*.webp binary
+*.zip binary
+# Preserve bundled upstream license text exactly, including its original spacing.
+assets/fonts/*-OFL.txt -whitespace
+skills/mindbox/assets/runtime/assets/fonts/*-OFL.txt -whitespace

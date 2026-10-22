@@ -1,0 +1,72 @@
+name: Publish Mindbox website
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - src/**
+      - assets/**
+      - skills/**
+      - scripts/**
+      - bin/**
+      - examples/**
+      - tests/**
+      - package*.json
+      - .github/workflows/pages.yml
+permissions:
+  contents: read
+concurrency:
+  group: mindbox-pages
+  cancel-in-progress: false
+jobs:
+  configured:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: read
+    outputs:
+      enabled: ${{ steps.pages.outputs.enabled }}
+    steps:
+      - name: Check whether Pages is configured
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/pages" --silent 2> "$RUNNER_TEMP/mindbox-pages-error"; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          elif [[ "$(cat "$RUNNER_TEMP/mindbox-pages-error")" == *"HTTP 404"* ]]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::GitHub Pages is not configured; website deployment skipped. Enable Pages with GitHub Actions to publish the site."
+          else
+            cat "$RUNNER_TEMP/mindbox-pages-error" >&2
+            exit 1
+          fi
+  build:
+    needs: configured
+    if: needs.configured.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run stage:site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Mindbox
+        id: deployment
+        uses: actions/deploy-pages@v4

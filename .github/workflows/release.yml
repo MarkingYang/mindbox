@@ -1,0 +1,30 @@
+name: Release Skill
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Tag must match package version
+        run: node -e "if(process.env.GITHUB_REF_NAME!=='v'+require('./package.json').version)process.exit(1)"
+      - run: npm ci
+      - run: npm run check:package
+      - run: npm run check
+      - run: npm run test:install
+      - run: git diff --exit-code -- skills/mindbox docs/images/overview.svg
+      - run: npm run release:assets
+      - name: Publish checked release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/release/*.zip dist/release/SHA256SUMS dist/release/release.json --verify-tag --title "Mindbox $GITHUB_REF_NAME" --notes-file dist/release/notes.md

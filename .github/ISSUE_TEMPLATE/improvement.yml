@@ -1,0 +1,17 @@
+name: Improvement / 改进建议
+description: Improve the Skill, an existing style, or onboarding.
+body:
+  - type: textarea
+    id: use
+    attributes:
+      label: User task / 用户要做什么？
+      description: Describe a real task and the difficulty in the current version.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement / 改进方向
+      description: Include the affected preset, example content and expected result. Agent/MCP integrations are phase two.
+    validations:
+      required: true

@@ -1,0 +1,62 @@
+{
+  "reviewedAt": "2026-10-21",
+  "basis": "跨平台公开信号＋目标任务适配；人工编辑判断，不是爆款或流量预测。",
+  "signals": [
+    {
+      "id": "everyday",
+      "title": "OpenAI · How people are using ChatGPT",
+      "date": "2025-09-15",
+      "url": "https://openai.com/index/how-people-are-using-chatgpt/",
+      "finding": "研究中的约四分之三对话属于实用指导、信息查询和写作。",
+      "scope": "ChatGPT消费者对话研究；不是全体网民，也不是Mindbox使用率。"
+    },
+    {
+      "id": "questions",
+      "title": "Google · Year in Search 2025",
+      "date": "2025-12-04",
+      "url": "https://blog.google/products-and-platforms/products/search/year-in-search-2025/",
+      "finding": "Google报告How do I开头的查询同比增加25%，Tell me about增加70%。",
+      "scope": "Google披露的搜索趋势；不能外推为中国平台搜索量或某个具体选题的流量。"
+    },
+    {
+      "id": "skills",
+      "title": "WEF · Future of Jobs 2025 / Skills outlook",
+      "date": "2025-01",
+      "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/",
+      "finding": "受访雇主预计到2030年，39%的核心技能会变化。",
+      "scope": "雇主对未来技能的预期，不是实际学习成效或未来就业保证。"
+    },
+    {
+      "id": "work",
+      "title": "Microsoft · Breaking down the infinite workday",
+      "date": "2025-06-17",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/breaking-down-infinite-workday",
+      "finding": "报告关注知识工作中的会议、消息和工作碎片化。",
+      "scope": "Microsoft365汇总信号与跨市场知识工作者调查；不代表每位用户的工作日。"
+    },
+    {
+      "id": "code",
+      "title": "Stack Overflow · 2025 Developer Survey / AI",
+      "date": "2025",
+      "url": "https://survey.stackoverflow.co/2025/ai",
+      "finding": "66%的相关受访者把AI方案差一点才正确列为困扰。",
+      "scope": "问卷相应问题的开发者受访样本；不是所有代码的错误率。"
+    },
+    {
+      "id": "artifacts",
+      "title": "Anthropic Economic Index · Cadences",
+      "date": "2026-06-26",
+      "url": "https://www.anthropic.com/research/economic-index-june-2026-report",
+      "finding": "研究将解释、网站等具体产物与工作、个人、课程用途区分分析。",
+      "scope": "Claude及其产品的使用研究；此处仅作为产物与场景的选题信号。"
+    },
+    {
+      "id": "agents",
+      "title": "Anthropic · Building effective agents",
+      "date": "2024-12-19",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "finding": "区分预定义工作流与动态选择步骤的Agent，描述检索、工具、反馈与停止条件。",
+      "scope": "概念范例的技术参考，不是热度数据。"
+    }
+  ]
+}

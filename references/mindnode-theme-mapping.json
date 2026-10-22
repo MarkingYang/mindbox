@@ -1,0 +1,170 @@
+[
+  {
+    "preset": "P37",
+    "reference": "Elegant",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/accae389ed822c3ea1830edb2c70f6d2f74e56e7.mindnodetheme",
+    "code": "L01-N13-E03-C15-B12-T01-D03"
+  },
+  {
+    "preset": "P38",
+    "reference": "Fresh",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/28e91c33df2a6a16cec2dad7d7635a76a46108ae.mindnodetheme",
+    "code": "L01-N13-E03-C16-B13-T01-D03"
+  },
+  {
+    "preset": "P39",
+    "reference": "Rainbow (Legacy)",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/6cb1e3c760e1234c1b0b984e2d2d16fc706eaed0.mindnodetheme",
+    "code": "L01-N20-E10-C17-B14-T11-D03"
+  },
+  {
+    "preset": "P40",
+    "reference": "Slate (Legacy)",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/ad475e57195713b31bdbc1a8bb357c4caa95b2d6.mindnodetheme",
+    "code": "L01-N13-E10-C18-B15-T10-D03"
+  },
+  {
+    "preset": "P41",
+    "reference": "Teal (Legacy)",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/bba3e8240ba6740f020019ffe580daa8f5ea118a.mindnodetheme",
+    "code": "L01-N13-E03-C19-B16-T01-D03"
+  },
+  {
+    "preset": "P42",
+    "reference": "iMac Blue",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/ee3e282bc29a60a06a181c2e47b4728b39bacf2c.mindnodetheme",
+    "code": "L01-N13-E03-C20-B17-T01-D03"
+  },
+  {
+    "preset": "P43",
+    "reference": "iMac Yellow",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/d6dbf231cef0707f7ef41cb7fa6347fb3620f44b.mindnodetheme",
+    "code": "L01-N13-E03-C21-B18-T01-D03"
+  },
+  {
+    "preset": "P44",
+    "reference": "iMac Green",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/8594471edc339662058074da6533a3cc4d6f963f.mindnodetheme",
+    "code": "L01-N13-E03-C22-B19-T01-D03"
+  },
+  {
+    "preset": "P45",
+    "reference": "iMac Pink",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/e66b1f00f66bc5dcee45d64220bd0de6d97d376c.mindnodetheme",
+    "code": "L01-N13-E03-C23-B20-T01-D03"
+  },
+  {
+    "preset": "P46",
+    "reference": "iMac Purple",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/a250769719eb448d12524f2cf5da93bbb5bc3437.mindnodetheme",
+    "code": "L01-N13-E03-C24-B21-T01-D03"
+  },
+  {
+    "preset": "P47",
+    "reference": "iMac Orange",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/412fe8b9ef7ae456ca833cc28b420b608366f56b.mindnodetheme",
+    "code": "L01-N13-E03-C25-B22-T01-D03"
+  },
+  {
+    "preset": "P48",
+    "reference": "Natural",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/ce9af7373f075df7d1a060290b4560f4e4207185.mindnodetheme",
+    "code": "L01-N13-E10-C26-B23-T05-D03"
+  },
+  {
+    "preset": "P49",
+    "reference": "Pale",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/1598c30e14bc450dacfbe072d51e909eca72d7ab.mindnodetheme",
+    "code": "L01-N13-E03-C27-B24-T01-D03"
+  },
+  {
+    "preset": "P50",
+    "reference": "Pleasant",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/f8716e338da97ffeb9b5b8719f7ffad0b49b3395.mindnodetheme",
+    "code": "L01-N13-E03-C28-B25-T01-D03"
+  },
+  {
+    "preset": "P51",
+    "reference": "Small Graphics",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/9b7a1dfa4cbf097b7f387b1d3a2a086877d9f56b.mindnodetheme",
+    "code": "L01-N14-E01-C29-B26-T01-D03"
+  },
+  {
+    "preset": "P52",
+    "reference": "Vision",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/bc05d1d97e0fd41c7f1a6e5736c3d085b520f434.mindnodetheme",
+    "code": "L01-N13-E03-C30-B27-T01-D03"
+  },
+  {
+    "preset": "P53",
+    "reference": "Black",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/18f896b07d450c7433d72d0d874995bd4825ce48.mindnodetheme",
+    "code": "L01-N13-E10-C31-B28-T08-D03"
+  },
+  {
+    "preset": "P54",
+    "reference": "Classic",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/d9fdc16a876399de02429e1ca570c497508fd4b0.mindnodetheme",
+    "code": "L01-N13-E03-C32-B29-T01-D03"
+  },
+  {
+    "preset": "P55",
+    "reference": "Modern",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/fa1bc3cfc87fc82a76b4da790a52fa8b8db741f0.mindnodetheme",
+    "code": "L01-N13-E03-C33-B30-T01-D03"
+  },
+  {
+    "preset": "P56",
+    "reference": "Idea Sandbox",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/d19f4ff496add795d425d905db081504ec14b6d6.mindnodetheme",
+    "code": "L01-N13-E03-C34-B31-T01-D03"
+  },
+  {
+    "preset": "P57",
+    "reference": "Hot Cocoa",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/fb6a3802810a5834e0ec0bea2e0b5c88f952e78c.mindnodetheme",
+    "code": "L01-N13-E03-C35-B32-T02-D03"
+  },
+  {
+    "preset": "P58",
+    "reference": "Delight",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/dbfedafb52f22b30d85aec63d9c1f87f79d8002b.mindnodetheme",
+    "code": "L01-N13-E03-C36-B33-T01-D03"
+  },
+  {
+    "preset": "P59",
+    "reference": "Cappuccino",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/8aa9f6e6e302a54600574b7b77a51d351f844156.mindnodetheme",
+    "code": "L01-N13-E03-C37-B34-T02-D03"
+  },
+  {
+    "preset": "P60",
+    "reference": "Goth Pastel",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/9984612642f7158684764c0d0fb3c11af49f39e5.mindnodetheme",
+    "code": "L01-N21-E01-C38-B35-T08-D03"
+  },
+  {
+    "preset": "P61",
+    "reference": "Minimalist",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/7316c46aea1c346afa38b8640ee69642a67f1a25.mindnodetheme",
+    "code": "L01-N19-E01-C39-B36-T06-D03"
+  },
+  {
+    "preset": "P62",
+    "reference": "Roadmap",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/be207afe1cf614226e9740f88cc4059073276485.mindnodetheme",
+    "code": "L01-N15-E01-C40-B37-T01-D03"
+  },
+  {
+    "preset": "P63",
+    "reference": "Winter Day",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/92d3c75356c3f3d9a1a48ca4bc423b86186f5401.mindnodetheme",
+    "code": "L01-N14-E01-C41-B38-T01-D03"
+  },
+  {
+    "preset": "P64",
+    "reference": "Winter Night",
+    "url": "https://cdn.sanity.io/files/rcrh40p3/production/5ed69c92d0c69c118ac01ab7efae1e717cd70042.mindnodetheme",
+    "code": "L01-N13-E03-C42-B39-T01-D03"
+  }
+]

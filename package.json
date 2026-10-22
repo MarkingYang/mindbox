@@ -1,0 +1,39 @@
+{
+  "name": "mindbox-repository",
+  "private": true,
+  "version": "1.0.2",
+  "description": "16 crafted mind map styles, one reusable Agent Skill, standalone interactive HTML",
+  "license": "MIT",
+  "repository": "github:MarkingYang/mindbox",
+  "engines": {
+    "node": ">=22.20.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "dev": "node scripts/serve.cjs",
+    "test": "node --test --test-reporter=spec tests/*.test.cjs",
+    "check": "npm run build && npm test && npm run check:package",
+    "package:skill": "node scripts/package-skill.cjs",
+    "check:package": "node scripts/check-package.cjs",
+    "test:install": "node scripts/test-install.cjs",
+    "release:assets": "node scripts/release.cjs",
+    "stage:site": "node scripts/stage-site.cjs",
+    "demo": "node skills/mindbox/scripts/render.cjs --input examples/model-selection.md --output outputs/model-selection.html --preset P39",
+    "check:public": "node scripts/check-public.cjs"
+  },
+  "devDependencies": {
+    "saxes": "6.0.0"
+  },
+  "bin": {
+    "mindbox-install": "bin/install.cjs"
+  },
+  "files": [
+    "bin/",
+    "skills/mindbox/",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "dependencies": {
+    "skills": "1.7.4"
+  }
+}

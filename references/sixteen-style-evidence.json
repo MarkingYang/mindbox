@@ -1,0 +1,145 @@
+{
+  "retrieved": "2026-10-20",
+  "componentLimit": 8,
+  "presetLimit": 16,
+  "preserved": [
+    {
+      "id": "P61",
+      "code": "L01-N19-E01-C39-B36-T06-D03"
+    },
+    {
+      "id": "P48",
+      "code": "L01-N13-E10-C26-B23-T05-D03"
+    },
+    {
+      "id": "P40",
+      "code": "L01-N13-E10-C18-B15-T10-D03"
+    },
+    {
+      "id": "P39",
+      "code": "L01-N20-E10-C17-B14-T11-D03"
+    },
+    {
+      "id": "P60",
+      "code": "L01-N21-E01-C38-B35-T08-D03"
+    },
+    {
+      "id": "P65",
+      "code": "L01-N16-E09-C43-B40-T09-D03"
+    },
+    {
+      "id": "P67",
+      "code": "L02-N18-E09-C43-B41-T12-D03"
+    },
+    {
+      "id": "P68",
+      "code": "L01-N16-E09-C45-B42-T13-D03"
+    }
+  ],
+  "added": [
+    {
+      "id": "P73",
+      "name": "商务蓝图",
+      "code": "L02-N19-E07-C03-B36-T06-D02",
+      "usageEvidence": {
+        "reference": "Business Mindmap",
+        "copies": "5.3K",
+        "likes": "865",
+        "url": "https://miro.com/templates/business-mindmap/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    },
+    {
+      "id": "P74",
+      "name": "知识提纲",
+      "code": "L05-N06-E02-C39-B40-T05-D01",
+      "usageEvidence": {
+        "reference": "Mindmapping",
+        "copies": "2.4K",
+        "likes": "384",
+        "url": "https://miro.com/templates/atlassian-mindmapping/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    },
+    {
+      "id": "P75",
+      "name": "组织分层",
+      "code": "L03-N20-E02-C03-B36-T10-D02",
+      "usageEvidence": {
+        "reference": "Business Plan Mind Map Template",
+        "copies": "1.6K",
+        "likes": "30",
+        "url": "https://miro.com/templates/business-plan-mind-map/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    },
+    {
+      "id": "P76",
+      "name": "便签共创",
+      "code": "L01-N16-E04-C38-B40-T08-D03",
+      "usageEvidence": {
+        "reference": "Brainwriting Template",
+        "copies": "875",
+        "likes": "23",
+        "url": "https://miro.com/templates/brainwriting-basic/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    },
+    {
+      "id": "P77",
+      "name": "概念分组",
+      "code": "L02-N19-E04-C26-B23-T11-D02",
+      "usageEvidence": {
+        "reference": "Concept Map Template",
+        "copies": "4.7K",
+        "likes": "35",
+        "url": "https://miro.com/templates/concept-map-basic/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    },
+    {
+      "id": "P78",
+      "name": "项目分解",
+      "code": "L03-N19-E07-C39-B14-T12-D02",
+      "usageEvidence": {
+        "reference": "Project Planning Mind Map",
+        "copies": "989",
+        "likes": "12",
+        "url": "https://miro.com/templates/project-planning-mind-map/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    },
+    {
+      "id": "P79",
+      "name": "语义索引",
+      "code": "L05-N13-E02-C26-B23-T09-D01",
+      "usageEvidence": {
+        "reference": "Semantic Map Template",
+        "copies": "3.7K",
+        "likes": "22",
+        "url": "https://miro.com/templates/semantic-map/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    },
+    {
+      "id": "P80",
+      "name": "彩色研讨",
+      "code": "L04-N20-E01-C17-B36-T13-D02",
+      "usageEvidence": {
+        "reference": "Six Thinking Hats Mind Map",
+        "copies": "938",
+        "likes": "18",
+        "url": "https://miro.com/templates/six-thinking-hats-mind-map-by-aryanna-martin/",
+        "retrieved": "2026-10-20",
+        "metric": "cumulative template copies; not style usage"
+      }
+    }
+  ]
+}

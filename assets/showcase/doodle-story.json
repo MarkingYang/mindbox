@@ -1,0 +1,27 @@
+{
+  "width": 960,
+  "height": 604,
+  "frames": 28,
+  "durationMs": 18300,
+  "bytes": 261300,
+  "originalBytes": 2901978,
+  "webpSHA256": "897524f6def86eb8f170f8eeff66ec9eec93039c8855889adfb28378ed81755b",
+  "sourceSHA256": "85f25adc8031ce2a6c5476f5d6347c3e08a714a55d04581b87b71ebac2435822",
+  "method": "Canonical reader export; save-only QA adapter; lossless delta repack verified pixel-identical and duration-identical at every decoded frame.",
+  "svgSHA256": "34fea0e32505737e83dc23b8b3ebaa52ef40b123550608b63e08c6482fa1dda5",
+  "readingLabels": [
+    "给周末造个小玩具",
+    "捡一粒小烦恼",
+    "收藏夹又迷路了",
+    "让想法有个小窝",
+    "故意反着想",
+    "待办清单也放假",
+    "给没做的事开朵花",
+    "画一个能玩的",
+    "纸片变成藏宝图",
+    "点一下冒出好主意",
+    "今晚就试一点",
+    "拉个搭子来试玩",
+    "明天再长一片叶子"
+  ]
+}

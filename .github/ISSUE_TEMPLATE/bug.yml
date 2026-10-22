@@ -1,0 +1,30 @@
+name: Bug / 问题反馈
+description: Report a reproducible installation, layout, import or export problem.
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened? / 发生了什么？
+      description: Expected result and actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 使用环境
+      description: Mindbox version, OS, Node.js version, assistant, browser and install command.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction / 最小复现
+      description: Small Markdown and preset ID, or the failing command. Remove private data.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / 截图与错误信息
+      description: Include the affected part; do not upload private source documents.
