@@ -89,6 +89,12 @@ Update and upgrade are the same operation. Keep the `mindbox` name: omitting it 
 
 更新／升级是同一个操作；保留命令中的 `mindbox`，只更新这份 Skill。安装或更新后开启新助手会话。卸载时确认操作；已生成的 HTML 保留。重新安装用同一条 `add` 命令，按提示再次选择助手。
 
+### Migrating an older install / 旧安装迁移
+
+If you previously used the long Mindbox installer, a local folder or a ZIP, run `npx skills add MarkingYang/mindbox -g` once before adopting the standard updater. The optional installer's first install can record a local bundled source; `skills update` follows that recorded source and cannot be assumed to fetch the latest GitHub version. Reinstallation records the public GitHub source. Existing WorkBuddy links pointing to the same shared directory remain usable. Keep any saved legacy backup separate; ordinary updates do not refresh it.
+
+以前用旧长命令或本地／ZIP 包安装的用户，先用普通 `add` 命令重装一次，迁移到 GitHub 更新源；不要直接假定 `update` 会从旧本地来源切换到 GitHub。
+
 For project-only installation, omit `-g`; run these from that project:
 
 ```bash

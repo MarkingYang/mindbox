@@ -80,6 +80,8 @@ Use the same Skills CLI for everyday management (`-g` means global, across proje
 
 Update and upgrade mean the same operation. Naming `mindbox` limits the update to this Skill. Removal asks for confirmation and removes Mindbox from its standard assistant directories, leaving generated HTML intact. Open a new assistant session after installing or updating. Add `--skill mindbox --agent codex` to install only for Codex. For a project install omit `-g`; use `-p` when updating.
 
+Previously used the long Mindbox installer or a local/ZIP package? Run the ordinary install once to record the GitHub source before using the standard update command. Existing shared adapter links can continue to use that installation.
+
 The install follows the default branch. Pin a release with `npx skills add https://github.com/MarkingYang/mindbox/tree/v1.0.3 --skill mindbox -g`. Updates preserve that pin; rerun the ordinary install to return to the default branch. See [version management](docs/versioning.md) for read-only release checks and legacy installer rollback. Standard Skills CLI updates do not provide the Mindbox installer's backup/recovery. [All commands and extra adapters](docs/installation.md#skill-commands) · [Manual ZIP install](docs/installation.md#manual-zip-installation)
 
 Installation checks exercise copied resources and actual rendering through the supported host paths. They do not represent a model-driven conversation in every assistant. Local Doubao Work discovery was also verified; see the compatibility guide for its limits.

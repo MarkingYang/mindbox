@@ -13,6 +13,8 @@ Update and upgrade mean the same operation. Naming `mindbox` keeps other Skills 
 
 Updates follow the recorded source/ref, not necessarily the newest GitHub release. The ordinary install follows the default branch; reinstalling with it returns a pinned installation to that branch and prompts for assistants again. Manual ZIP installs are replaced manually unless explicitly reinstalled with Skills CLI. Standard CLI updates do not create a Mindbox rollback backup. [Full installation and extra adapters](installation.md#skill-commands)
 
+If an earlier installer recorded a local bundled source, or you installed a ZIP/local folder, first run the ordinary `add` command once to migrate to the public GitHub source. The standard updater follows the recorded source; it does not infer that migration. Existing shared WorkBuddy links remain usable.
+
 ## Inspect versions without changing files / 只读检查
 
 Replace `<skill-dir>` with the Mindbox path shown by `npx skills list -g` (omit `-g` for a project):

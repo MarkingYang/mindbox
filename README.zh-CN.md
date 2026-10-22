@@ -80,6 +80,8 @@ npx skills add MarkingYang/mindbox -g
 
 更新和升级是同一操作；指定 `mindbox` 只更新这份 Skill。卸载时确认操作，移除标准助手目录中的 Mindbox，保留已生成的 HTML。安装／更新后开启新的助手会话。仅安装 Codex 可加 `--skill mindbox --agent codex`；项目安装去掉 `-g`，更新时改用 `-p`。
 
+以前用旧长命令或本地／ZIP 包安装？先运行一次上面的普通安装命令，将更新来源切换到 GitHub，再使用标准更新命令。指向共享目录的现有适配链接可继续使用。
+
 上述安装跟随默认分支；固定版本用 `npx skills add https://github.com/MarkingYang/mindbox/tree/v1.0.3 --skill mindbox -g`。固定版本的更新不会自动切换到新标签，升级到默认分支可重新运行普通安装命令。只读检查新版本与旧安装器回退见[版本管理](docs/versioning.md)。标准 Skills CLI 更新不提供 Mindbox 安装器的备份／自动恢复。[完整命令与额外适配](docs/installation.md#skill-commands) · [手动 ZIP 安装](docs/installation.md#manual-zip-installation)
 
 安装检查覆盖资源复制与各助手路径下的实际生成，不代表每个助手的真实模型对话都已验证。本机还验证过豆包工作从共享目录发现 Skill，适用条件见兼容说明。
