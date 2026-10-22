@@ -15,6 +15,7 @@ function run(args,options={}) {
 }
 const targets={codex:'.agents/skills/mindbox','claude-code':'.claude/skills/mindbox',cursor:'.agents/skills/mindbox',openclaw:'.openclaw/skills/mindbox',codebuddy:'.codebuddy/skills/mindbox',workbuddy:'.workbuddy/skills/mindbox'};
 try {
+ const lifecycle=require('./test-skills-lifecycle.cjs')();
  const command=fs.readFileSync(path.join(root,'src/index.html'),'utf8').match(/<code id="install-command">([^<]+)<\/code>/)?.[1];
  if(command!=='npx skills add MarkingYang/mindbox -g')throw new Error('Website must expose the standard Skills CLI entry');
  const manifest=require('../package.json');
@@ -67,5 +68,5 @@ try {
  // Repeat the same command and ensure every host still resolves to the supplied Skill.
  run(args);
  for(const folder of Object.values(targets))if(!fs.readFileSync(path.join(testHome,folder,'SKILL.md')).equals(fs.readFileSync(path.join(root,'skills/mindbox/SKILL.md'))))throw new Error('Repeated install drifted');
- console.log(JSON.stringify({passed:true,source:'local repository; standard Skills CLI and unified installer',cli:require('../node_modules/skills/package.json').version,installed:Object.keys(targets),links,workbuddy:'shared-directory adapter; discovery UI verified separately',doubao:'shared Skill discovery; desktop UI verified separately',render:'MMB0Q4',restyle:'MMP0A7',canonicalParity:true,reinstall:true,upgrade:true,failedUpdateRecovery:true,rollback:true,scope:'isolated OS home in test child; real HOME unchanged'},null,2));
+ console.log(JSON.stringify({passed:true,lifecycle,source:'local repository; standard Skills CLI and unified installer',cli:require('../node_modules/skills/package.json').version,installed:Object.keys(targets),links,workbuddy:'shared-directory adapter; discovery UI verified separately',doubao:'shared Skill discovery; desktop UI verified separately',render:'MMB0Q4',restyle:'MMP0A7',canonicalParity:true,reinstall:true,upgrade:true,failedUpdateRecovery:true,rollback:true,scope:'isolated OS home in test child; real HOME unchanged'},null,2));
 }catch(error){console.error(error.message);process.exitCode=1;}finally{fs.rmSync(temp,{recursive:true,force:true});}

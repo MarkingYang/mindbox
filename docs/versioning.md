@@ -1,68 +1,79 @@
-# Versions, upgrades and recovery / 版本、升级与回退
+# Versions, updates and recovery / 版本、更新与回退
 
-## Inspect what is installed
+## Standard Skills CLI / 日常管理
+
+| Action / 操作 | Global command / 全局命令 |
+| --- | --- |
+| Install / reinstall / 安装或重装 | `npx skills add MarkingYang/mindbox -g` |
+| List installed / 查看安装 | `npx skills list -g` |
+| Update / upgrade Mindbox / 更新或升级 | `npx skills update mindbox -g` |
+| Uninstall / 卸载 | `npx skills remove mindbox -g` |
+
+Update and upgrade mean the same operation. Naming `mindbox` keeps other Skills out of the update/removal request. `-g` manages global installations; for a project omit `-g` for add/list/remove and use `-p` for update. Run project commands from that project. Start a new assistant session after installation or updates. Generated HTML remains independent of Skill changes.
+
+Updates follow the recorded source/ref, not necessarily the newest GitHub release. The ordinary install follows the default branch; reinstalling with it returns a pinned installation to that branch and prompts for assistants again. Manual ZIP installs are replaced manually unless explicitly reinstalled with Skills CLI. Standard CLI updates do not create a Mindbox rollback backup. [Full installation and extra adapters](installation.md#skill-commands)
+
+If an earlier installer recorded a local bundled source, or you installed a ZIP/local folder, first run the ordinary `add` command once to migrate to the public GitHub source. The standard updater follows the recorded source; it does not infer that migration. Existing shared WorkBuddy links remain usable.
+
+## Inspect versions without changing files / 只读检查
+
+Replace `<skill-dir>` with the Mindbox path shown by `npx skills list -g` (omit `-g` for a project):
 
 ```bash
+node "<skill-dir>/scripts/manage.cjs" --status
+node "<skill-dir>/scripts/manage.cjs" --check
+node "<skill-dir>/scripts/render.cjs" --version
+```
+
+`--status` verifies the local package and reports its version/fingerprints/source; `--version` prints the installed version. Both work offline. `manage.cjs --check` explicitly contacts GitHub's latest stable release with a five-second timeout; it does not install anything. It distinguishes an update, current/ahead version, unpublished release, and unavailable network. Do not call it during ordinary generation.
+
+On macOS/Linux the usual global command is `node ~/.agents/skills/mindbox/scripts/manage.cjs --check`; in PowerShell use `node "$env:USERPROFILE/.agents/skills/mindbox/scripts/manage.cjs" --check`. Custom, manual and project paths can differ.
+
+**Do not substitute `npx skills check` for a read-only check.** In the tested external CLI 1.7.4, `check`, `update` and `upgrade` share the updater. Use the installed Mindbox check above when no file changes are intended.
+
+## Pin or switch a version / 指定与切换版本
+
+```bash
+npx skills add https://github.com/MarkingYang/mindbox/tree/v1.0.3 --skill mindbox -g
+```
+
+This installs the [v1.0.3 release](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.3). Substitute another existing release tag to explicitly change versions. Subsequent `skills update mindbox -g` preserves the pin; it does not jump to a newer tag. Run the ordinary install to follow the default branch again. Back up local modifications before replacement. For ZIPs, extract the complete versioned Skill folder using the [manual instructions](installation.md#manual-zip-installation).
+
+## Optional installer and legacy recovery / 额外适配与旧安装器回退
+
+Use this section when you need the WorkBuddy adapter or previously used the Mindbox multi-host installer. It is separate from everyday Skills CLI management:
+
+```bash
+# Inspect the optional installer's state or check the stable release
 npx --yes --package=github:MarkingYang/mindbox mindbox-install --status
 npx --yes --package=github:MarkingYang/mindbox mindbox-install --check
-```
-
-`--status` works locally once the installer is available: it reports installer version, installed Skill version, package/renderer fingerprints, installation source and the available rollback version. `--check` explicitly contacts the GitHub latest-stable-release endpoint with a five-second timeout. An unpublished release, network failure or rate limit is reported as unavailable/unpublished; it is never presented as “already current”. Checking does not install anything.
-
-For an installed Skill without npx or network access:
-
-```bash
-node <skill-dir>/scripts/manage.cjs --status
-node <skill-dir>/scripts/render.cjs --version
-```
-
-The installer version identifies the tool downloaded by npx. The Skill version identifies the content actually used to generate diagrams. These can differ after pinning or rollback.
-
-## Upgrade explicitly
-
-```bash
+# Explicitly update and repair its extra host link
 npx --yes --package=github:MarkingYang/mindbox mindbox-install --update
-```
-
-The unified installer re-runs the pinned Skills CLI against the repository's default branch and repairs the WorkBuddy link. It does not upgrade your assistant or Node.js. Start a new assistant session after a change; refresh local Skills in Doubao Work.
-
-Before replacement, the installed canonical package is copied to a temporary recovery directory. The new package must pass its integrity/version checks and WorkBuddy connection. On a handled installation/validation failure, the old canonical package is restored. After a changed package installs successfully, one previous complete package is retained at `~/.agents/.mindbox/previous`, outside Skill discovery. Reinstalling identical content keeps that meaningful prior backup. All assistant links resolve to the same package; Windows uses a directory junction for WorkBuddy.
-
-You can still use `npx skills update mindbox -g -y` for a standard CLI-managed installation. That external command follows Skills CLI's update policy and does not provide Mindbox's backup/recovery checks. Use the unified installer when you want those guarantees. Manual ZIP installs use manual replacement unless migrated to the unified entry.
-
-## Pin or restore
-
-Pin both installer and Skill content to a published stable tag:
-
-```bash
-npx --yes --package=github:MarkingYang/mindbox#v1.0.2 mindbox-install --tag v1.0.2
-```
-
-Use the [v1.0.2 release](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.2) for the current stable snapshot. See its installation verification record for the checks actually completed. `--tag` selects the Skill source and verifies the installed version matches. To use a newer installer with older content, keep the package source unpinned and set `--tag` to the desired release.
-
-```bash
+# Restore the one saved package, only if it exists
 npx --yes --package=github:MarkingYang/mindbox mindbox-install --rollback
 ```
 
-Rollback uses the one local previous package; it needs the installer/Skills CLI available but does not fetch a version from GitHub. The current package then becomes the previous version. Files already generated by users are never replaced by Skill upgrades or rollback. If installation is interrupted by a crash, power loss or an external process, automatic recovery is not guaranteed; keep your own backups for important local modifications. Concurrent installer runs are not supported.
+The optional installer installs five native targets and links WorkBuddy to the shared package. On a handled install/validation failure it restores its temporary snapshot; after a changed successful install it retains one previous complete package at `~/.agents/.mindbox/previous`, outside Skill discovery. Reinstalling identical content preserves that prior backup. A standard Skills CLI or manual ZIP install alone has no such saved version: do not promise `--rollback` for those installations. The backup can be older than the immediately preceding standard CLI update.
+
+To pin both this optional installer and its content:
+
+```bash
+npx --yes --package=github:MarkingYang/mindbox#v1.0.3 mindbox-install --tag v1.0.3
+```
+
+Its installer version and installed Skill version can differ after pins or rollback. Report both accurately. A crash, power loss or external process may prevent recovery; concurrent installer runs are unsupported. Fingerprints detect drift, not publisher authenticity. [Uninstalling extra links and the optional backup](installation.md#remove-extra-adapters)
 
 ## Release policy / 发布规则
 
-- `package.json` is the single release-version source; build generates `version.json`, complete package manifest and renderer manifest. The lockfile and release tag must agree.
-- The v1.0.0 baseline unifies project and Skill versions. Stable versions use `MAJOR.MINOR.PATCH`: patch for compatible fixes, minor for compatible capabilities/styles, major for intentional breaking interfaces. Existing `0.x` HTML remains readable.
-- UIDs and existing preset/recipe meanings remain stable across releases. A style's public identity is not its list position or release number.
-- `main` is the development channel. A GitHub `vX.Y.Z` release is a named stable snapshot. A newer main build may report “ahead” of the latest stable release.
-- Maintain the latest stable release and current main. Older versions may be reported, but backports are not promised.
-- Fingerprints/checksums detect accidental drift; they are not a cryptographic publisher signature or security audit.
-- Generation remains offline. No background update check, telemetry or silent upgrade is added to the Skill or generated HTML.
+- `package.json` supplies the release version; the lockfile, Skill identity, runtime/package manifests and `vX.Y.Z` tag must agree. The v1.0.0 baseline unified project and Skill versions; older generated HTML remains readable.
+- Use semantic versions: compatible fixes are patches, compatible capabilities/styles are minor releases, and intentional breaking changes require a major version. Preserve all 16 style codes and recipe meanings.
+- `main` is the development channel; a published GitHub tag is an immutable stable snapshot. Fix a published package with a new version rather than replacing tags/assets.
+- Rendering stays offline, with no background checks or silent upgrades. Model access and source permissions belong to the host assistant.
 
 ## Maintainer release steps
 
-1. Update the package version and lockfile (`npm version patch --no-git-tag-version`, or an intentional minor/major bump), then add its changelog entry.
-2. Run `npm ci`, `npm run check`, `npm run test:install`, `npm run release:assets`. Inspect `dist/release/release.json` and `SHA256SUMS`.
-3. Commit the canonical source, generated Skill package and notices. Push the complete repository before advertising GitHub installation. Generated `dist/` remains untracked.
-4. When ready to publish, create/push the matching `vX.Y.Z` tag. The release workflow validates identity, tests the package and publishes the versioned ZIP, metadata and checksum. Published tags/assets should not be silently replaced; fix with a new patch version.
-
-The tag-triggered workflow publishes the ZIP, checksum and metadata. Each release must complete its own checks; local checks and generated files alone do not constitute publication. Do not move an existing published tag or replace its assets to publish a fix.
-
-Current pinned installation uses v1.0.2. Older public tags and release downloads have been retired; existing generated HTML and installed local packages continue to work.
+1. Update package/lockfile version and changelog.
+2. Run `npm ci`, `npm run check`, `npm run test:install` and `npm run release:assets`; inspect release metadata/checksums.
+3. Commit canonical source and generated Skill resources, then publish through a reviewed pull request. Do not commit `dist/`.
+4. Tag the merged commit with the matching version. The release workflow rechecks identity/tests and publishes the ZIP, metadata and checksum.
+5. Verify installation from the public source and the actual published tag in an isolated home. Local tests alone do not prove public installation.

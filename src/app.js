@@ -213,7 +213,7 @@
     $('skill-prompt').value=text;fitPrompt();
     try{await navigator.clipboard.writeText(text);notify('使用指令已复制，粘贴给你的 Agent 即可');}catch{$('skill-prompt').value=text;$('use-skill').scrollIntoView({behavior:'smooth'});$('skill-prompt').focus();$('skill-prompt').select();notify('指令已选中，可手动复制');}
   }
-  for(const [action,label] of [['install','安装'],['update','更新'],['hero-install','安装']])$('copy-'+action+'-command').addEventListener('click',async()=>{const code=$(action+'-command');try{await navigator.clipboard.writeText(code.textContent);notify(label+'命令已复制');}catch{const selection=window.getSelection(),range=document.createRange();range.selectNodeContents(code);selection.removeAllRanges();selection.addRange(range);notify(label+'命令已选中，可手动复制');}});
+  for(const [action,label] of [['install','安装'],['update','更新'],['list','查看'],['remove','卸载'],['hero-install','安装']])$('copy-'+action+'-command').addEventListener('click',async()=>{const code=$(action+'-command');try{await navigator.clipboard.writeText(code.textContent);notify(label+'命令已复制');}catch{const selection=window.getSelection(),range=document.createRange();range.selectNodeContents(code);selection.removeAllRanges();selection.addRange(range);notify(label+'命令已选中，可手动复制');}});
   $('copy-skill-prompt').addEventListener('click',()=>copyUsage());
   document.querySelectorAll('[data-skill-phrase]').forEach(b=>b.addEventListener('click',()=>copyUsage(null,b.dataset.skillPhrase)));
   $('copy-manual').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('manual-example').textContent);notify('使用范例已复制');}catch{notify('可直接选中范例文字复制');}});

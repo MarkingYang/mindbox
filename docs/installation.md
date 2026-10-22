@@ -27,13 +27,13 @@ npx skills add MarkingYang/mindbox --skill mindbox --agent codex -g
 npx skills add MarkingYang/mindbox --skill mindbox --agent claude-code -g
 ```
 
-The complete package is published on GitHub. For a fixed stable snapshot of both installer and Skill, use:
+The optional adapter can also pin both installer and Skill (standard Skills CLI pins are below):
 
 ```bash
-npx --yes --package=github:MarkingYang/mindbox#v1.0.2 mindbox-install --tag v1.0.2
+npx --yes --package=github:MarkingYang/mindbox#v1.0.3 mindbox-install --tag v1.0.3
 ```
 
-The unpinned command follows the default branch. No build step, npm dependencies or API key is required to run the installed renderer. This is a Skill for an existing assistant; it does not install an independent Agent or MCP server. [Public installation verification](https://github.com/MarkingYang/mindbox/releases/download/v1.0.2/installation-verification.json)
+The unpinned command follows the default branch. No build step, npm dependencies or API key is required to run the installed renderer. This is a Skill for an existing assistant; it does not install an independent Agent or MCP server. [Public installation verification](https://github.com/MarkingYang/mindbox/releases/download/v1.0.3/installation-verification.json)
 
 ## Assistant compatibility
 
@@ -69,30 +69,70 @@ Then try:
 
 Continue editing directly in the generated HTML. Save the latest HTML before asking the assistant for further changes; the paired Markdown is a snapshot, not a live synchronized file. See [direct editing](html-editing.md).
 
-## Update or remove
+## Skill commands
+
+Use these commands for a standard global installation / 全局安装统一命令：
+
+| Action / 操作 | Command / 命令 |
+| --- | --- |
+| Install / 安装 | `npx skills add MarkingYang/mindbox -g` |
+| List installed / 查看安装 | `npx skills list -g` |
+| Update or upgrade only Mindbox / 更新或升级 | `npx skills update mindbox -g` |
+| Remove Mindbox / 卸载 | `npx skills remove mindbox -g` |
+| Reinstall or repair / 重新安装或修复 | `npx skills add MarkingYang/mindbox -g` |
+| Inspect installed package / 本地版本与完整性 | `node "<skill-dir>/scripts/manage.cjs" --status` |
+| Check stable release, read-only / 只读检查新版本 | `node "<skill-dir>/scripts/manage.cjs" --check` |
+
+`<skill-dir>` means the actual installed Mindbox directory shown by `skills list -g`; replace it before running. The usual shared global directory is `~/.agents/skills/mindbox`. On macOS/Linux, for example: `node ~/.agents/skills/mindbox/scripts/manage.cjs --check`. In PowerShell: `node "$env:USERPROFILE/.agents/skills/mindbox/scripts/manage.cjs" --check`.
+
+Update and upgrade are the same operation. Keep the `mindbox` name: omitting it updates other installed Skills too. Only update when requested, then open a new assistant session. An update follows the recorded source/ref; a pinned install remains pinned. Reinstall from `MarkingYang/mindbox` to return to the default branch, selecting the assistants again. Removal asks for confirmation and targets all standard assistant directories. For a specific destination use, for example, `npx skills remove mindbox --agent claude-code -g`; shared universal directories can serve more than one assistant. Generated HTML is independent and is not deleted by removing the Skill. Back up personal changes to installed Skill files before replacement.
+
+更新／升级是同一个操作；保留命令中的 `mindbox`，只更新这份 Skill。安装或更新后开启新助手会话。卸载时确认操作；已生成的 HTML 保留。重新安装用同一条 `add` 命令，按提示再次选择助手。
+
+### Migrating an older install / 旧安装迁移
+
+If you previously used the long Mindbox installer, a local folder or a ZIP, run `npx skills add MarkingYang/mindbox -g` once before adopting the standard updater. The optional installer's first install can record a local bundled source; `skills update` follows that recorded source and cannot be assumed to fetch the latest GitHub version. Reinstallation records the public GitHub source. Existing WorkBuddy links pointing to the same shared directory remain usable. Keep any saved legacy backup separate; ordinary updates do not refresh it.
+
+以前用旧长命令或本地／ZIP 包安装的用户，先用普通 `add` 命令重装一次，迁移到 GitHub 更新源；不要直接假定 `update` 会从旧本地来源切换到 GitHub。
+
+For project-only installation, omit `-g`; run these from that project:
 
 ```bash
-npx --yes --package=github:MarkingYang/mindbox mindbox-install --update
-npx skills remove mindbox --agent codex -g
+npx skills add MarkingYang/mindbox --skill mindbox --agent codex
+npx skills list
+npx skills update mindbox -p
+npx skills remove mindbox
 ```
 
-For installed-version checks, pinned tags, one-version rollback and failure recovery, see [version management](versioning.md). The unified installer preserves the previous package; the generic Skills CLI update remains available without those recovery checks.
+The global and project scopes are separate. Use the directory actually loaded by the assistant for version inspection. CLI options belong to the external [Skills CLI reference](https://github.com/vercel-labs/skills/blob/main/docs/cli.md); tests pin its version in `package-lock.json`.
 
-Updates are user-initiated: run the update command when you want the latest published repository version, then start a new assistant session. Use `npx skills list -g` to see globally installed Skills. The website uses Skills CLI as its primary installation and update route.
+Do not use `npx skills check` as a read-only check: the tested CLI 1.7.4 routes it to its updater. Mindbox's `manage.cjs --check` only compares the installed version against GitHub's latest stable release, reports network errors, and never replaces files. See [version management](versioning.md) for pins, ZIP replacement and legacy backups.
 
-Updates keep the shared installation current across its linked host paths, including WorkBuddy. Re-run the npx installer to repair links. Existing unrelated WorkBuddy installations are preserved, with an actionable error rather than overwritten. To remove the WorkBuddy link, remove only `~/.workbuddy/skills/mindbox`; the shared source belongs to Skills CLI. Remove for each target separately if desired, or use `npx skills remove mindbox -g` to choose the installed destinations. Project installations omit `-g`. CLI options are owned by the external [Skills CLI](https://github.com/vercel-labs/skills); the repository pins its development test version in `package-lock.json`.
-
-The external installer downloads resources and has its own telemetry policy. To opt out of its telemetry/security-audit requests on macOS/Linux:
+### Fixed release / 固定版本
 
 ```bash
-DISABLE_TELEMETRY=1 npx --yes --package=github:MarkingYang/mindbox mindbox-install
+npx skills add https://github.com/MarkingYang/mindbox/tree/v1.0.3 --skill mindbox -g
 ```
 
-PowerShell: set `$env:DISABLE_TELEMETRY = '1'` before running the same command. Mindbox's installed renderer does not perform update checks, telemetry or network requests.
+Replace the tag with another existing published release to change versions. This explicitly replaces installed Skill content, so keep your own backup of local edits. Standard CLI installation/update does not create the optional installer's one-version rollback snapshot.
+
+### Remove extra adapters
+
+The optional Mindbox installer adds a WorkBuddy link that is not registered in Skills CLI. Before removing the shared package, remove only that link: `~/.workbuddy/skills/mindbox` (or `<WORKBUDDY_CONFIG_DIR>/skills/mindbox`). Check that it is a symlink/junction pointing to the shared Mindbox package; leave an independent directory untouched. Then run `npx skills remove mindbox -g` to remove the standard native destinations. Windows junction removal must remove the link, not its target. Other WorkBuddy Skills and generated maps stay untouched.
+
+The optional installer retains one prior package in `~/.agents/.mindbox/previous`. After uninstalling, you may delete this Mindbox-only backup if no longer needed; never delete the whole `.agents` directory or its lockfile. Re-running the optional installer repairs a missing adapter link while preserving unrelated existing installations.
+
+The external CLI downloads resources and has its own telemetry policy. To opt out of telemetry/security-audit requests on macOS/Linux:
+
+```bash
+DISABLE_TELEMETRY=1 npx skills add MarkingYang/mindbox -g
+```
+
+PowerShell: set `$env:DISABLE_TELEMETRY = '1'` before running the install command. Mindbox's installed renderer performs no network requests, background updates or telemetry.
 
 ## Manual ZIP installation
 
-Download `mindbox-v1.0.2.zip` from the [stable release](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.2), with its `SHA256SUMS` file. Verify the archive checksum, then extract the complete `mindbox/` folder, not just `SKILL.md`.
+Download `mindbox-v1.0.3.zip` from the [stable release](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.3), with its `SHA256SUMS` file. Verify the archive checksum, then extract the complete `mindbox/` folder, not just `SKILL.md`.
 
 - Codex: `~/.codex/skills/mindbox/`, or `<CODEX_HOME>/skills/mindbox/` if you configured `CODEX_HOME`.
 - Claude Code: `~/.claude/skills/mindbox/`.

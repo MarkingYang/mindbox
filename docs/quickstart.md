@@ -51,3 +51,14 @@ After browser edits, save and attach the latest HTML before asking the assistant
 把保存后的 HTML 发给别人，对方用浏览器打开即可。也可在脑图内按需导出 PNG 或 WebP；WebP 编码取决于浏览器支持。
 
 Mindbox 适合笔记、计划与想法的层级整理。精确时序和跨节点关系图请选相应工具。模型和文档权限由你使用的助手提供。
+
+## 6. Manage Mindbox / 安装之后
+
+| 操作 / Action | 全局命令 / Global command |
+| --- | --- |
+| 查看安装 / List | `npx skills list -g` |
+| 更新或升级 / Update | `npx skills update mindbox -g` |
+| 卸载 / Remove | `npx skills remove mindbox -g` |
+| 重新安装 / Reinstall | `npx skills add MarkingYang/mindbox -g` |
+
+更新后开启新助手会话。卸载保留生成的 HTML。项目范围、只读检查版本、固定版本和额外适配清理见[完整安装命令](installation.md#skill-commands)与[版本管理](versioning.md)。

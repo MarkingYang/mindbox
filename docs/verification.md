@@ -1,5 +1,12 @@
 # Verification / 验收记录
 
+## v1.0.3 lifecycle command verification
+
+Local checks: `npm ci`, `npm run check` (156 tests), `npm run test:install`, Skill metadata validation and release packaging passed. The lifecycle integration uses the real Skills CLI 1.7.4 with a temporary OS home inherited by its updater subprocesses and an isolated Git transport fixture. It verifies global install/list/targeted update/remove/reinstall, fixed-ref retention, project install/update/remove, and the preservation of an unrelated installed Skill and a saved user HTML file. The installed Mindbox release checker reports an available update without changing package bytes or the lockfile.
+
+Website tests execute the actual command-copy handlers for the homepage and first-use tutorial, including clipboard-unavailable selection fallback. A local Chrome check opened the management disclosure and clicked the update copy button, which reported success. These checks cover commands and UI behavior, not model conversations in every assistant or public release availability before publication.
+
+
 ## 1.0.1 reader loading · 2026-10-22
 
 The old click path fetched a 6,243,576-byte all-font template before opening its modal, then discarded unused fonts. On one measured connection that transferred roughly 4.63 MB after compression. The homepage already requested the font files separately. Replacing the clicked preview's text also removed its SVG during the wait.

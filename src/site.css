@@ -31,3 +31,5 @@ body{font-size:14px}main{max-width:1440px;padding:0 4.5%}a,button{transition:col
 #showcase{padding:40px 0}
 
 .reader-load-status{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:30px;color:#657b9a;font-size:14px}.reader-load-status button{border:1px solid #ccd8eb;border-radius:8px;background:#f2f5fb;color:#2164ff;padding:10px 18px;font:inherit;cursor:pointer}.reader-load-status[hidden],#reader-demo-frame[hidden]{display:none}
+
+.install-maintenance h3{font-size:14px;font-weight:600;margin:22px 0 8px;color:#465b7e}

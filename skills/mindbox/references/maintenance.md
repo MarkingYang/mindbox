@@ -34,7 +34,20 @@ For reader changes: build and test, check actual rename/add/delete/undo/cancel, 
 
 For version questions run `node "<skill-dir>/scripts/manage.cjs" --status`; `render.cjs --version` prints the installed version. `manage.cjs --check` explicitly checks the latest stable GitHub release; never run it during ordinary generation. No published release and network failures have distinct statuses.
 
-Only update when the user asks: `npx --yes --package=github:MarkingYang/mindbox mindbox-install --update`. The unified installer keeps one previous complete package and restores it after a handled failed install. `--rollback` restores that saved package; `--tag vX.Y.Z` pins Skill content. Existing generated HTML stays independent of installed upgrades. Full package fingerprints detect drift, not publisher authenticity. The installer and installed Skill may have different versions; report both accurately.
+Use the standard Skills CLI for lifecycle requests:
+
+| Request | Global command |
+| --- | --- |
+| Install / reinstall | `npx skills add MarkingYang/mindbox -g` |
+| List installations | `npx skills list -g` |
+| Update / upgrade Mindbox | `npx skills update mindbox -g` |
+| Uninstall Mindbox | `npx skills remove mindbox -g` |
+
+Only update or remove when requested. Resolve the installation scope first: omit `-g` for a project install; use `-p` for project updates. Keep the explicit `mindbox` update/removal filter. Open a new host session after changing the Skill. Reinstallation prompts for assistants. Removal asks for confirmation and targets standard assistant directories unless filtered with `--agent`; generated HTML remains independent.
+
+For a read-only release check use the installed `manage.cjs --check` command above. Do not substitute `npx skills check`: the tested Skills CLI 1.7.4 routes `check` to its updater. Report unavailable/unpublished states accurately. To pin or switch to a published release use `npx skills add https://github.com/MarkingYang/mindbox/tree/vX.Y.Z --skill mindbox -g`, replacing the version with an actual published tag. Updates retain a pin; ordinary reinstall returns to the default branch. Standard updates do not provide a saved previous package. For a prior bundled/local/ZIP install, ordinary reinstall is required once to record the GitHub source; do not assume the standard updater changes a local source to GitHub. Existing links to the same shared directory remain usable.
+
+The optional multi-host installer remains for WorkBuddy and legacy recovery: `npx --yes --package=github:MarkingYang/mindbox mindbox-install --update` repairs its extra link and retains one prior complete package. Its `--rollback` only works when that backup exists; do not promise it for a standard CLI/manual ZIP install. Before removing a shared installation, remove only a WorkBuddy link confirmed to point to that package, preserving any independent copy. See the repository [installation guide](https://github.com/MarkingYang/mindbox/blob/main/docs/installation.md) and [version guide](https://github.com/MarkingYang/mindbox/blob/main/docs/versioning.md) for platform paths and recovery limits. Fingerprints detect drift, not publisher authenticity.
 
 ## Branch interaction
 

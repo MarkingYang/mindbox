@@ -1,8 +1,8 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "schemaVersion": 1,
   "license": "MIT",
-  "releaseTag": "v1.0.2",
+  "releaseTag": "v1.0.3",
   "node": ">=22.20.0",
   "presets": [
     "P61",
