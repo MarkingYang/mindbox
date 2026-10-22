@@ -58,7 +58,7 @@ async function main(args){
   const changed=before&&before.package!==installed.package,previousVersion=changed?before.version:fs.existsSync(previous)?M.inspect(previous).version:null;
   fs.writeFileSync(path.join(canonical,'installation.json'),JSON.stringify({version:installed.version,package:installed.package,installerVersion,installedAt:new Date().toISOString(),source,channel:opts['--tag']?'tag':opts['--source']?'local-or-custom':opts['--rollback']?'rollback':'main',previousVersion},null,2)+'\n');
   if(changed){if(fs.existsSync(previous))fs.renameSync(previous,olderBackup);fs.renameSync(snapshot,previous);recovery=previous;}
-  console.log('Mindbox '+(before?before.version+' → ':'')+installed.version+'; package integrity: '+installed.integrity+'\nWorkBuddy shares: '+target+'\nOpen a new assistant session; refresh local Skills in Doubao Work.\nUpgrade: npx --yes --package=github:MarkingYang/mindbox mindbox-install --update');
+  console.log('Mindbox '+(before?before.version+' → ':'')+installed.version+'; package integrity: '+installed.integrity+'\nWorkBuddy shares: '+target+'\nOpen a new assistant session; refresh local Skills in Doubao Work.\nUpdate / upgrade: npx skills update mindbox -g\nExtra adapters and saved rollback: see docs/installation.md and docs/versioning.md');
  }catch(error){
   if(before&&fs.existsSync(recovery)){fs.rmSync(canonical,{recursive:true,force:true});fs.cpSync(recovery,canonical,{recursive:true});error.message+=' Previous Skill '+before.version+' restored.';}
   else if(!before)fs.rmSync(canonical,{recursive:true,force:true});

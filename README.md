@@ -9,7 +9,7 @@
 
 Turn notes, documents and unfinished ideas into an editable mind map. Mindbox is an Agent Skill with **16 complete styles**. It delivers **one interactive HTML file** you can open offline, revise and share.
 
-[Try the live website](https://markingyang.github.io/mindbox/) · [Explore 16 examples](https://markingyang.github.io/mindbox/showcase/index.html) · [Install](#start-with-one-sentence) · [Download v1.0.2](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.2)
+[Try the live website](https://markingyang.github.io/mindbox/) · [Explore 16 examples](https://markingyang.github.io/mindbox/showcase/index.html) · [Install](#start-with-one-sentence) · [Download v1.0.3](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.3)
 
 [![Four Mindbox styles, generated with the same renderer as the installed Skill](docs/images/overview.svg)](https://markingyang.github.io/mindbox/showcase/index.html)
 
@@ -29,7 +29,7 @@ Or choose a style by name:
 
 > 用 Mindbox，把这份资料整理成思维导图，用彩虹经典。
 
-Select your assistant when prompted. For extra adapters such as WorkBuddy, multi-host setup, or the pinned v1.0.2 release, use the [unified installer](docs/installation.md). In Codex, you can explicitly invoke `$mindbox`. Start a new assistant session if the Skill has not appeared. [Installation and host compatibility →](docs/installation.md)
+Select your assistant when prompted. For extra adapters such as WorkBuddy, multi-host setup, or the pinned v1.0.3 release, see the [installation guide](docs/installation.md). In Codex, you can explicitly invoke `$mindbox`. Start a new assistant session if the Skill has not appeared. [Installation and host compatibility →](docs/installation.md)
 
 [Your first map: install, generate, edit and share →](docs/quickstart.md) · [Find and install Mindbox →](docs/discovery.md)
 
@@ -67,15 +67,20 @@ Follow-up changes to the same topic update the same HTML; a new topic or an expl
 
 ## Install, update and verify
 
-Project and Skill share **v1.0.2**. The [release](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.2) includes the complete Skill ZIP, checksums, release metadata and an [installation verification record](https://github.com/MarkingYang/mindbox/releases/download/v1.0.2/installation-verification.json).
+Project and Skill share **v1.0.3**. The [release](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.3) includes the complete Skill ZIP, checksums, release metadata and an [installation verification record](https://github.com/MarkingYang/mindbox/releases/download/v1.0.3/installation-verification.json).
 
-Prefer a single host? Use the standard Skills CLI:
+Use the same Skills CLI for everyday management (`-g` means global, across projects):
 
-```bash
-npx skills add MarkingYang/mindbox --skill mindbox --agent codex -g
-```
+| Action | Command |
+| --- | --- |
+| Install / reinstall | `npx skills add MarkingYang/mindbox -g` |
+| List installed Skills | `npx skills list -g` |
+| Update / upgrade Mindbox | `npx skills update mindbox -g` |
+| Uninstall Mindbox | `npx skills remove mindbox -g` |
 
-This follows the repository's default branch. For a stable snapshot, use the pinned command in the installation guide. The unified installer also supports version inspection, explicit updates and one-version rollback. [Installation](docs/installation.md) · [Version management](docs/versioning.md) · [Manual ZIP install](docs/installation.md#manual-zip-installation)
+Update and upgrade mean the same operation. Naming `mindbox` limits the update to this Skill. Removal asks for confirmation and removes Mindbox from its standard assistant directories, leaving generated HTML intact. Open a new assistant session after installing or updating. Add `--skill mindbox --agent codex` to install only for Codex. For a project install omit `-g`; use `-p` when updating.
+
+The install follows the default branch. Pin a release with `npx skills add https://github.com/MarkingYang/mindbox/tree/v1.0.3 --skill mindbox -g`. Updates preserve that pin; rerun the ordinary install to return to the default branch. See [version management](docs/versioning.md) for read-only release checks and legacy installer rollback. Standard Skills CLI updates do not provide the Mindbox installer's backup/recovery. [All commands and extra adapters](docs/installation.md#skill-commands) · [Manual ZIP install](docs/installation.md#manual-zip-installation)
 
 Installation checks exercise copied resources and actual rendering through the supported host paths. They do not represent a model-driven conversation in every assistant. Local Doubao Work discovery was also verified; see the compatibility guide for its limits.
 

@@ -51,7 +51,7 @@ async function checkLatest(directory,fetcher=fetch){
 module.exports={inspect,checkLatest,packageFiles,hash,stable};
 if(require.main===module)(async()=>{
  const directory=path.resolve(__dirname,'..'),args=process.argv.slice(2);
- if(args.length!==1||!['--version','--status','--check'].includes(args[0]))throw new Error('Use --version, --status or --check. Updates: npx --yes --package=github:MarkingYang/mindbox mindbox-install --update');
+ if(args.length!==1||!['--version','--status','--check'].includes(args[0]))throw new Error('Use --version, --status or --check. Updates: npx skills update mindbox -g');
  if(args[0]==='--version')console.log(JSON.parse(fs.readFileSync(path.join(directory,'version.json'),'utf8')).version);
  else console.log(JSON.stringify(args[0]==='--check'?await checkLatest(directory):inspect(directory),null,2));
 })().catch(error=>{console.error(error.message);process.exitCode=1;});

@@ -60,4 +60,4 @@ After exit 0 and `validation.passed: true`, link the actual HTML. Do not deliver
 
 HTML supports node/Markdown editing, undo/redo, folding, zoom, reading guidance, PNG and animated WebP. Invalid drafts survive Save HTML and `--extract`. Saving downloads a new file; no silent overwrite or autosave. Ask for that file before AI follow-ups. Browser exports only when requested; do not invent CLI export flags.
 
-Read [usage](references/usage.md) for format, editing, exports, versions or errors; [maintenance](references/maintenance.md) for upgrades or renderer work; [combinations](references/style-combinations.md) only for explicit library/legacy maintenance. `$mindbox` invokes the Skill; natural discovery depends on the host. Do not claim measured Token savings or a hosted Agent/MCP service.
+Read [usage](references/usage.md) for format, editing, exports, versions or errors; [maintenance](references/maintenance.md) for lifecycle or renderer work; [combinations](references/style-combinations.md) only for explicit library/legacy maintenance. `$mindbox` invokes the Skill; discovery depends on the host. Do not claim measured Token savings or a hosted Agent/MCP service.

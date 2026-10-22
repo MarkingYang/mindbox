@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3
+
+- Unify website, copy buttons, English/Chinese guides and packaged Skill lifecycle instructions around the standard Skills CLI: install, list, targeted update/upgrade, remove and reinstall.
+- Clarify global/project scope, pinned source behavior and extra adapter cleanup; reserve legacy installer recovery promises for installations with an actual saved backup.
+- Use the installed Mindbox checker for read-only release comparisons: Skills CLI 1.7.4 aliases `check` to its updater. Verify targeted lifecycle operations in isolated homes without changing user installations or generated HTML.
+
 ## 1.0.2
 
 - Consolidated release of the current Mindbox Agent Skill, shared renderer and 16 editable mind map styles.

@@ -1,7 +1,7 @@
 {
   "name": "mindbox-repository",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "16 crafted mind map styles, one reusable Agent Skill, standalone interactive HTML",
   "license": "MIT",
   "repository": "github:MarkingYang/mindbox",

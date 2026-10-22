@@ -9,7 +9,7 @@
 
 把笔记、文档和还没理顺的想法，变成可编辑的思维导图。Mindbox 是一份带有 **16 套完整样式**的 Agent Skill，交付**一个可交互的 HTML 文件**，可以离线打开、继续修改、直接分享。
 
-[在线体验](https://markingyang.github.io/mindbox/) · [浏览 16 份范例](https://markingyang.github.io/mindbox/showcase/index.html) · [开始安装](#安装一次说一句就开始) · [下载 v1.0.2](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.2)
+[在线体验](https://markingyang.github.io/mindbox/) · [浏览 16 份范例](https://markingyang.github.io/mindbox/showcase/index.html) · [开始安装](#安装一次说一句就开始) · [下载 v1.0.3](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.3)
 
 [![由安装版 Skill 共用渲染器生成的四种 Mindbox 样式](docs/images/overview.svg)](https://markingyang.github.io/mindbox/showcase/index.html)
 
@@ -29,7 +29,7 @@ npx skills add MarkingYang/mindbox -g
 
 > 用 Mindbox，把这份资料整理成思维导图，用彩虹经典。
 
-按提示选择助手。WorkBuddy 等额外适配、一次安装多个助手，或锁定 v1.0.2 稳定版，请使用[统一安装器](docs/installation.md)。Codex 中可显式调用 `$mindbox`。安装后未出现时，开启一个新的助手会话。[安装与兼容说明 →](docs/installation.md)
+按提示选择助手。WorkBuddy 等额外适配、一次安装多个助手，或锁定 v1.0.3 稳定版，请看[安装指南](docs/installation.md)。Codex 中可显式调用 `$mindbox`。安装后未出现时，开启一个新的助手会话。[安装与兼容说明 →](docs/installation.md)
 
 [第一次使用：从一段笔记到可编辑脑图 →](docs/quickstart.md) · [如何搜索和安装 Mindbox →](docs/discovery.md)
 
@@ -67,15 +67,20 @@ npx skills add MarkingYang/mindbox -g
 
 ## 安装、更新与验证
 
-项目与 Skill 统一版本为 **v1.0.2**。[发布页](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.2)提供完整 Skill ZIP、校验和、版本信息与[安装验收记录](https://github.com/MarkingYang/mindbox/releases/download/v1.0.2/installation-verification.json)。
+项目与 Skill 统一版本为 **v1.0.3**。[发布页](https://github.com/MarkingYang/mindbox/releases/tag/v1.0.3)提供完整 Skill ZIP、校验和、版本信息与[安装验收记录](https://github.com/MarkingYang/mindbox/releases/download/v1.0.3/installation-verification.json)。
 
-只想安装到某一个助手，也可以用标准 Skills CLI：
+日常操作统一使用 Skills CLI（`-g` 表示跨项目的全局安装）：
 
-```bash
-npx skills add MarkingYang/mindbox --skill mindbox --agent codex -g
-```
+| 操作 | 命令 |
+| --- | --- |
+| 安装／重新安装 | `npx skills add MarkingYang/mindbox -g` |
+| 查看已安装 | `npx skills list -g` |
+| 更新／升级 Mindbox | `npx skills update mindbox -g` |
+| 卸载 Mindbox | `npx skills remove mindbox -g` |
 
-这条命令跟随仓库默认分支；需要固定稳定版，请使用上方带版本的安装命令。统一安装器另支持查看版本、主动升级和回退一个版本。[安装指南](docs/installation.md) · [版本管理](docs/versioning.md) · [手动 ZIP 安装](docs/installation.md#manual-zip-installation)
+更新和升级是同一操作；指定 `mindbox` 只更新这份 Skill。卸载时确认操作，移除标准助手目录中的 Mindbox，保留已生成的 HTML。安装／更新后开启新的助手会话。仅安装 Codex 可加 `--skill mindbox --agent codex`；项目安装去掉 `-g`，更新时改用 `-p`。
+
+上述安装跟随默认分支；固定版本用 `npx skills add https://github.com/MarkingYang/mindbox/tree/v1.0.3 --skill mindbox -g`。固定版本的更新不会自动切换到新标签，升级到默认分支可重新运行普通安装命令。只读检查新版本与旧安装器回退见[版本管理](docs/versioning.md)。标准 Skills CLI 更新不提供 Mindbox 安装器的备份／自动恢复。[完整命令与额外适配](docs/installation.md#skill-commands) · [手动 ZIP 安装](docs/installation.md#manual-zip-installation)
 
 安装检查覆盖资源复制与各助手路径下的实际生成，不代表每个助手的真实模型对话都已验证。本机还验证过豆包工作从共享目录发现 Skill，适用条件见兼容说明。
 
