@@ -21,7 +21,10 @@ module.exports=function testLifecycle(){
  function witness(text){const dir=path.join(repo,'skills/lifecycle-witness');fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'SKILL.md'),'---\nname: lifecycle-witness\ndescription: Unrelated test skill.\n---\n'+text+'\n');}
  try{
   release('9.0.1');witness('original unrelated content');git(['init','-b','main']);git(['add','.']);git(['commit','-m','initial fixtures']);git(['tag','v9.0.1']);
+  skills(['add',repo,'--skill','mindbox','--agent','codex','claude-code','-g','-y']);
+  const lockPath=path.join(home,'.agents/.skill-lock.json');assert.equal(JSON.parse(fs.readFileSync(lockPath)).skills.mindbox.sourceType,'local');
   skills(['add',source,'--skill','mindbox','--agent','codex','claude-code','-g','-y']);
+  assert.equal(JSON.parse(fs.readFileSync(lockPath)).skills.mindbox.sourceType,'gitlab');
   skills(['add',source,'--skill','lifecycle-witness','--agent','codex','claude-code','-g','-y']);
   assert.equal(M.inspect(canonical).version,'9.0.1');assert.match(skills(['list','-g']),/mindbox/);
   fs.writeFileSync(artifact,'User saved HTML must survive Skill lifecycle changes.');const saved=fs.readFileSync(artifact),untouched=fs.readFileSync(other);
@@ -43,7 +46,7 @@ module.exports=function testLifecycle(){
   skills(['update','mindbox','-p']);assert.equal(M.inspect(local).version,'9.0.3');assert.equal(M.inspect(canonical).version,'9.0.2');
   skills(['remove','mindbox','-y']);assert.equal(fs.existsSync(path.join(local,'SKILL.md')),false);assert.equal(M.inspect(canonical).version,'9.0.2');
   assert.deepEqual(fs.readFileSync(other),untouched);assert.deepEqual(fs.readFileSync(artifact),saved);
-  return {passed:true,cli:require('../node_modules/skills/package.json').version,global:['add','list','read-only release check','targeted update','pin','reinstall','remove'],project:['add','targeted update','remove'],otherSkillPreserved:true,savedHTMLPreserved:true,scope:'temporary OS home inherited by updater child processes; local Git transport fixture'};
+  return {passed:true,cli:require('../node_modules/skills/package.json').version,global:['add','list','read-only release check','targeted update','pin','reinstall','remove'],project:['add','targeted update','remove'],localSourceMigration:true,otherSkillPreserved:true,savedHTMLPreserved:true,scope:'temporary OS home inherited by updater child processes; local Git transport fixture'};
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
 };
 if(require.main===module)console.log(JSON.stringify(module.exports(),null,2));
